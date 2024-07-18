@@ -1,5 +1,9 @@
 import { db } from "@/db";
 import Link from "next/link";
+//make this a dynamic route 
+//export const dynamic="force-dynamic";//never cache
+//we can disable caching
+//export const revalidate=0;//never caches
 
 export default async function Home() {
   const snippets = await db.snippet.findMany();

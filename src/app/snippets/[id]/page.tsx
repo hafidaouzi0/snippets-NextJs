@@ -41,3 +41,14 @@ export default async function SnippetShowPAge(props: SnippetShowProps) {
     </div>
   );
 }
+
+//when we run our build command this will be called automatically
+export async function generateStaticParams() {
+const snippets=await db.snippet.findMany();
+return snippets.map((snippet)=>{
+  return {
+    id:snippet.id.toString()
+  }
+})
+
+}
